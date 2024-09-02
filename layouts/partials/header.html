@@ -1,0 +1,10 @@
+<h1 class="site-title">
+  <span role="img" aria-label="emoji-logo">
+    {{ with site.Params.emoji }}{{ . | safeHTML }}{{ else }}💾{{ end }}
+  </span>
+  <a href="{{ absURL "/" }}">
+    {{ site.Title }}
+  </a>
+</h1>
+{{ partial "menu.html" (dict "menuID" "main" "page" .) }}
+

@@ -1,0 +1,22 @@
+{{ define "main" }}
+  <h1>{{ .Title }}</h1>
+  {{ .Content }}
+
+  <ul class="post-list">
+    {{ range .Pages.GroupByDate "Jan 2006" }}
+      <h2>{{ .Key }}</h2>
+      {{ range .Pages }}
+        <li class="post-list-item">
+          <div>
+            <time datetime="{{ time .Date }}" itemprop="datePublished">
+              {{ .Date.Format "2006 Jan 2" }}
+            </time>
+          </div>
+          <a href="{{ .Permalink }}">
+            {{ .Title }}
+          </a>
+        </li>
+      {{ end }}
+    {{ end }}
+  </ul>
+{{ end }}

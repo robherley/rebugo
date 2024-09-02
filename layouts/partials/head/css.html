@@ -1,0 +1,16 @@
+{{ $styles := resources.Match "css/*.css" }}
+{{- range $styles -}}
+  {{- if eq hugo.Environment "development" }}
+    <link rel="stylesheet" href="{{ .RelPermalink }}">
+  {{- else }}
+    {{- with . | minify | fingerprint }}
+      <link rel="stylesheet" href="{{ .RelPermalink }}" integrity="{{ .Data.Integrity }}" crossorigin="anonymous">
+    {{- end }}
+  {{- end }}
+{{- end -}}
+
+<style>
+  :root {
+    --color-primary: {{ if .Site.Params.PrimaryColor }} {{ .Site.Params.PrimaryColor }} {{ else }} var(--color-blue-7) {{ end }};
+  }
+</style>

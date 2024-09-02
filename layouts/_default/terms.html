@@ -1,0 +1,13 @@
+{{ define "main" }}
+  <h1>{{ .Title }}</h1>
+  {{ .Content }}
+  {{ if (eq (len .Pages) 0) }}
+    <p>No {{ lower .Title }} found.</p>
+  {{ else }}
+    <ul>
+      {{ range .Pages }}
+        <li style="text-transform: lowercase;"><a href="{{ .RelPermalink }}">{{ .LinkTitle }}</a></li>
+      {{ end }}
+    </ul>
+  {{ end }}
+{{ end }}

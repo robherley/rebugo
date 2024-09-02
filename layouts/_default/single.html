@@ -1,0 +1,33 @@
+{{ define "main" }}
+  <article>
+    <h1 class="title">{{ .Title }}</h1>
+
+    {{ $dateMachine := .Date | time.Format "2006-01-02T15:04:05-07:00" }}
+    {{ $dateHuman := .Date | time.Format ":date_long" }}
+
+    <div class="meta">
+      <time datetime="{{ $dateMachine }}">{{ $dateHuman }}</time> &middot; {{ printf "%d min read" .ReadingTime }}
+    </div>
+
+    {{ partial "terms.html" (dict "taxonomy" "tags" "page" .) }}
+
+    <div class="markdown-body">
+      {{ .Content }}
+    </div>
+  </article>
+
+  <div class="prev-next">
+    {{with .PrevInSection }}
+      <div>
+        <a href="{{ .Permalink }}">&#8592; Prev</a>
+        <span>{{ .Title | truncate 40 }}</span>
+      </div>
+    {{end}}
+    {{with .NextInSection }}
+      <div>
+        <a style="align-self: flex-end;" href="{{ .Permalink}}">Next &#8594;</a>
+        <span>{{ .Title | truncate 40 }}</span>
+      </div>
+    {{end}}
+  </div>
+{{ end }}

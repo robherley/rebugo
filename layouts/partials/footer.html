@@ -1,0 +1,14 @@
+<div class="stripes"></div>
+<div class="footer-meta">
+  <div>
+    <div>{{ now.Year }} {{ with .Site.Copyright }} {{ . }} {{ end }}</div>
+    <div>
+      Powered by <a href="https://gohugo.io/" target="_blank" rel="noopener noreferrer">Hugo</a> &
+      <a href="https://gohugo.io/" target="_blank" rel="noopener noreferrer">robherley/rebugo</a></div>
+  </div>
+  <div class="socials">
+    {{- range $index, $key := .Site.Params.Social -}}
+      <a href="{{ $key.link }}" rel="author" title="{{ $key.name }}"><i class="si si-{{ $key.name }}"></i></a>
+    {{- end -}}
+  </div>
+</div>

@@ -1,0 +1,13 @@
+name = 'rebugo'
+license = 'MIT'
+licenselink = 'https://github.com/robherley/rebugo/LICENSE'
+description = 'Minimal, lightweight blog theme for Hugo'
+homepage = 'https://github.com/robherley/rebugo'
+
+tags = ['blog', 'simple', 'minimal', 'dark']
+features = ['syntax-highlighting', 'github-readme', 'responsive', 'custom-css', 'mermaid']
+
+[author]
+  name = 'Rob Herley'
+  homepage = 'https://reb.gg'
+

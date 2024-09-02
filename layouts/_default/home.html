@@ -1,0 +1,26 @@
+{{ define "main" }}
+  {{ if .Content }}
+    {{ .Content }}
+  {{ end }}
+
+  {{ partial "readme.html" . }}
+
+  <ul class="post-list">
+    <h2>Recent</h1>
+    {{ range site.RegularPages | first 5 }}
+      <li class="post-list-item">
+        <div>
+          <time datetime="{{ time .Date }}" itemprop="datePublished">
+            {{ .Date.Format "2006 Jan 2" }}
+          </time>
+        </div>
+        <a href="{{ .Permalink }}">
+          {{ .Title }}
+        </a>
+      </li>
+    {{ end }}
+  </ul>
+  {{ if gt (len site.RegularPages) 5 }}
+    <a href="{{ "posts" | relURL }}">More →</a>
+  {{ end }}
+{{ end }}
