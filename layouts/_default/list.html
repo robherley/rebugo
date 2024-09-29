@@ -1,5 +1,9 @@
 {{ define "main" }}
-  <h1>{{ .Title }}</h1>
+
+  <h1 {{ if eq .Type "tags" }}class="tags-title"{{ end -}}>
+    {{- .Title -}}
+  </h1>
+
   {{ .Content }}
 
   <ul class="post-list">

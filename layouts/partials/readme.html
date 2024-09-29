@@ -1,9 +1,11 @@
 {{- if isset .Site.Params "readmerepo" -}}
-  {{ $url := printf "https://api.github.com/repos/%s/readme" .Site.Params.ReadmeRepo }}
-  {{ with resources.GetRemote $url }}
-    {{ $data := .Content | transform.Unmarshal }}
-    {{ $data.content | base64Decode | markdownify }}
-  {{ else }}
-    <p>README not found: {{ $url }} </p>
-  {{ end }}
+  <div class="readme">
+    {{ $url := printf "https://api.github.com/repos/%s/readme" .Site.Params.ReadmeRepo }}
+    {{ with resources.GetRemote $url }}
+      {{ $data := .Content | transform.Unmarshal }}
+      {{ $data.content | base64Decode | markdownify }}
+    {{ else }}
+      <p>README not found: {{ $url }} </p>
+    {{ end }}
+  </div>
 {{ end }}
