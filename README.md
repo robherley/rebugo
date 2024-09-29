@@ -67,3 +67,8 @@ assets/
 ```
 
 Otherwise, to add additional content to `<head>`, simple create a file at `layouts/partials/head_includes.html` with any content (analytics, external stylesheets/scripts, etc).
+
+## Inspiration
+
+- https://github.com/monkeyWzr/hugo-theme-cactus
+- https://github.com/athul/archie

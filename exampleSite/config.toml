@@ -1,0 +1,34 @@
+theme = "rebugo"
+baseURL = "http://blog.localhost/"
+languageCode = "en-us"
+title = "rebugo example"
+copyright = "Rob Herley"
+
+[[menu.main]]
+name = "Home"
+url = "/"
+weight = 1
+
+[[menu.main]]
+name = "Posts"
+url = "/posts"
+weight = 2
+
+[params]
+  favicon = "images/logo.png"
+  emoji = "🧪"
+
+  # render a GitHub repo readme!
+  # readmeRepo = "robherley/rebugo"
+
+[[params.social]]
+  name = "github"
+  link = "https://github.com/robherley"
+
+[markup]
+  [markup.highlight]
+    style = 'catppuccin-frappe'
+    tabWidth = 4
+
+[outputs]
+  home = ["HTML", "JSON"]
