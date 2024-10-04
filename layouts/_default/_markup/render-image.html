@@ -1,8 +1,8 @@
 <!-- Credit to: https://sebastiandedeyne.com/captioned-images-with-markdown-render-hooks-in-hugo/ -->
 {{ if .Title }}
-  <figure>
+  <figure style="text-align: center;">
     <img src="{{ .Destination | safeURL }}" alt="{{ .Text }}">
-    <figcaption style="text-align: center;">{{ .Title | markdownify }}</figcaption>
+    <figcaption>{{ .Title | markdownify }}</figcaption>
   </figure>
 {{ else }}
   <img src="{{ .Destination | safeURL }}" alt="{{ .Text }}">
