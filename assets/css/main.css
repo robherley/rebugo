@@ -311,6 +311,10 @@ footer {
   color: var(--color-text);
 }
 
+.footnotes {
+  word-wrap: break-word;
+}
+
 @media (max-width: 37.5em) {
   .prev-next > div > span {
     display: none;
